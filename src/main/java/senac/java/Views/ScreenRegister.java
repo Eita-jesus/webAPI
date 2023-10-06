@@ -33,10 +33,7 @@ public class ScreenRegister {
         products.img = sc.nextLine();
 
 
-
-
     }
-
     public static void inputSalesperson() {
         System.out.print("id:");
         Salesperson.id = Integer.parseInt(sc.nextLine());
@@ -72,16 +69,16 @@ public class ScreenRegister {
         Stores.email = sc.nextLine();
 
 
-        System.out.print(
-                "---- Descrição da Loja cadastrada ---" +
-                        "id:" + Stores.id + "\n" +
-                        "Address:" + Stores.address + "\n" +
-                        "City:" + Stores.city + "\n" +
-                        "State:" + Stores.state + "\n" +
-                        "CNPJ: " + Stores.CNPJ + "\n" +
-                        "Phone Number:" + Stores.phoneNumber + "\n" +
-                        "Email:" + Stores.email
-        );
+//        System.out.print(
+//                "---- Descrição da Loja cadastrada ---" +
+//                        "id:" + Stores.id + "\n" +
+//                        "Address:" + Stores.address + "\n" +
+//                        "City:" + Stores.city + "\n" +
+//                        "State:" + Stores.state + "\n" +
+//                        "CNPJ: " + Stores.CNPJ + "\n" +
+//                        "Phone Number:" + Stores.phoneNumber + "\n" +
+//                        "Email:" + Stores.email
+//        );
 
     }
 
