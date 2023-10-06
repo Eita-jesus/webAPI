@@ -24,7 +24,9 @@ public class ServidorZeus {
         HttpServer server = HttpServer.create(new InetSocketAddress(3000),
                 0);
 
-        server.createContext("/API/teste",new UserHandrer());
+        server.createContext("/api/teste",new UserHandrer());
+        server.createContext("/api/vendedor", new SalesPensonHandler());
+        server.createContext( "/api/produtos", new Produts());
 
         server.setExecutor(null);
         System.out.println(ANSI_RED_BACKGROUND + "Servidor Iniciado! "+ ANSI_RESET);
@@ -78,6 +80,25 @@ public class ServidorZeus {
         public void handle(HttpExchange exchange) throws IOException{
             String responde = "Essa e a rota de usuário";
                     enviarResponse(exchange, responde);
+        }
+
+    }
+
+    class SalesPensonHandler implements HttpHandler{
+        @Override
+        public  void handle(HttpExchange exchange)throws  IOException{
+            String responde = "Essa é a rota de Vendedor";
+            enviarResponse(exchange, responde);
+        }
+    }
+
+
+    class Produts implements HttpHandler{
+        @Override
+        public void handle(HttpExchange exchange) throws IOException{
+            String responde = "Essa é rota de Produtos";
+            enviarResponse(exchange,responde);
+
         }
 
     }
