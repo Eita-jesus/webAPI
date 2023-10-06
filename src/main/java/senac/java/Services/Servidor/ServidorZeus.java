@@ -4,13 +4,13 @@ import com.sun.net.httpserver.*;
 import senac.java.Domain.Users;
 
 import com.sun.net.httpserver.HttpServer; //Cria um servidor
-import com.sun.net.httpserver.HttpHandler; //
-import com.sun.net.httpserver.HttpExchange; //
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpExchange;
 
-import java.io.IOException; //
+import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress; // Interface de comunicação de texto
-import java.net.URI;
+
 
 
 public class ServidorZeus {
@@ -19,9 +19,7 @@ public class ServidorZeus {
 
 
     public void servidorZeus() throws IOException {
-        HttpExchange ex;
-        Users users = new Users();
-        String path  = "";
+
 
         HttpServer server = HttpServer.create(new InetSocketAddress(3000),
                 0);
