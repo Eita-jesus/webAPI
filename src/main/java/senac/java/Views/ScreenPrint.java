@@ -34,9 +34,9 @@ public class ScreenPrint {
                             "Last Name:" + Users.lastName + "\n" +
                             "Age:" + Users.age + "\n" +
                             "Adress: " + Users.address + "\n" +
-                            "Email:" + Users.Email + "\n" +
+                            "Email:" + Users.email + "\n" +
                             "Password:" + Users.password + "\n" +
-                            "CPF: " + Users.CPF
+                            "CPF: " + Users.cpf
             );
 
         }else{

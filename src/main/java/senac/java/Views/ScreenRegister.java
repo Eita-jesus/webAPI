@@ -92,11 +92,11 @@ public class ScreenRegister {
         System.out.print("Adress:");
         Users.address = sc.nextLine();
         System.out.print("Email:");
-        Users.Email = sc.nextLine();
+        Users.email = sc.nextLine();
         System.out.print("Password: ");
         Users.password = sc.nextLine();
         System.out.print("CPF: ");
-        Users.CPF = sc.nextLine();
+        Users.cpf = sc.nextLine();
 
 
 

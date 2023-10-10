@@ -5,6 +5,8 @@ import senac.java.Controllers.ProductController;
 import senac.java.Controllers.SalesPersonController;
 import senac.java.Controllers.UserController;
 import com.sun.net.httpserver.HttpServer; //Cria um servidor
+import senac.java.Domain.Users;
+
 import java.io.IOException;
 import java.net.InetSocketAddress; // Interface de comunicação de texto
 
@@ -17,6 +19,7 @@ public class ServidorZeus {
 
     public static void servidorZeus() throws IOException {
 
+        Users users = new Users();
 
         HttpServer server = HttpServer.create(new InetSocketAddress(3000),
                 0);
