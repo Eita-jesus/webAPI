@@ -14,16 +14,16 @@ public class UserController {
             String response = "";
 
             if ("GET".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de vendedor - GET";
+                response = "Essa e a rota de Usuario - GET";
                 res.enviarResponse(exchange,response);
             } else if ("POST".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de Vendedor - POST";
+                response = "Essa e a rota de Usuario - POST";
                 res.enviarResponse(exchange,response);
             }else if ("PUT".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de Vendedor - PUT";
+                response = "Essa e a rota de Usuario - PUT";
                 res.enviarResponse(exchange,response);
             }else if("DELETE".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de Vendedor - DELETE";
+                response = "Essa e a rota de Usuario - DELETE";
                 res.enviarResponse(exchange,response);
             }else {
                 response = "ERROOOOOOO \n " +

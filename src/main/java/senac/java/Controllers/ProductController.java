@@ -16,16 +16,16 @@ public class ProductController {
             String response = "";
 
             if ("GET".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de vendedor - GET";
+                response = "Essa e a rota de Produtos - GET";
                 res.enviarResponse(exchange,response);
             } else if ("POST".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de Vendedor - POST";
+                response = "Essa e a rota de Produtos - POST";
                 res.enviarResponse(exchange,response);
             }else if ("PUT".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de Vendedor - PUT";
+                response = "Essa e a rota de Produtos - PUT";
                 res.enviarResponse(exchange,response);
             }else if("DELETE".equals(exchange.getRequestMethod())){
-                response = "Essa e a rota de Vendedor - DELETE";
+                response = "Essa e a rota de Produtos - DELETE";
                 res.enviarResponse(exchange,response);
             }else {
                 response = "ERROOOOOOO \n " +

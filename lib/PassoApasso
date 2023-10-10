@@ -1,0 +1,7 @@
+Para importar um biblioteca Json acesse um pacote de bibliotecas
+
+https://repo1.maven.org/maven2/org/json/json/20230618/
+
+Para importar aqui no Intelli
+
+Crie um pasta, ideal que tenha o nome lib > coloque a lib baixada dentro dela > botão direito Add as Library;
