@@ -17,20 +17,20 @@ public class ProductController {
 
             if ("GET".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Produtos - GET";
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 200);
             } else if ("POST".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Produtos - POST";
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 200);
             }else if ("PUT".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Produtos - PUT";
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response,200);
             }else if("DELETE".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Produtos - DELETE";
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response,405);
             }else {
                 response = "ERROOOOOOO \n " +
                     "O método imprementado é: " + exchange.getRequestMethod();
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 405);
             }
 
 

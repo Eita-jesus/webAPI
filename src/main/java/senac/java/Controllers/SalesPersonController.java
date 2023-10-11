@@ -49,20 +49,20 @@ public class SalesPersonController {
                 teste1 = pets.toString(1);
 
                 response = "Essa e a rota de Vendedor - GET" + teste1;
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 200);
             } else if ("POST".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Vendedor - POST";
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 200);
             }else if ("PUT".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Vendedor - PUT";
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 200);
             }else if("DELETE".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Vendedor - DELETE";
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 200);
             }else {
                 response = "ERROOOOOOO \n " +
                         "O método imprementado é: " + exchange.getRequestMethod();
-                res.enviarResponse(exchange,response);
+                res.enviarResponse(exchange,response, 405);
             }
 
 

@@ -1,5 +1,7 @@
 package senac.java.Domain;
 
+import org.json.JSONObject;
+
 public class Users {
 
         public static int id = 0;
@@ -22,7 +24,7 @@ public class Users {
                 this.address = address;
                 this.email = email;
                 this.password = password;
-                this.cpf = cpf; 
+                this.cpf = cpf;
 
         }
 
@@ -61,6 +63,23 @@ public class Users {
         }
         public void setCPF(){
                 this.cpf = cpf;
+        }
+
+
+        //Esse método é para a criação de um Json
+
+        public JSONObject toJson(){
+                JSONObject json = new JSONObject();
+                json.put("name",name);
+                json.put("last_name", lastName);
+                json.put("age",age);
+                json.put("address",address);
+                json.put("email",email);
+                json.put("password", password);
+                json.put("cpf",cpf);
+
+                return json;
+
         }
 
 
