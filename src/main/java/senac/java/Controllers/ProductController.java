@@ -3,11 +3,9 @@ package senac.java.Controllers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import senac.java.Services.ResponseEndPoints;
-
 import java.io.IOException;
 
 public class ProductController {
-
     static ResponseEndPoints res = new ResponseEndPoints();
     public static class Produts implements HttpHandler {
         @Override

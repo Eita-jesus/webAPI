@@ -20,8 +20,6 @@ public class ResponseEndPoints {
             os.close();
 
 
-
-
     }
 
     public static void enviarResponse(HttpExchange exchange, JSONObject response) throws IOException{

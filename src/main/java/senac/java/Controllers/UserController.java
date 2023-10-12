@@ -22,6 +22,77 @@ public class UserController {
             String response = "";
 
             if ("GET".equals(exchange.getRequestMethod())){
+
+                Users getfromArrey = Users.getusets(0,usersList);
+
+
+
+                if(getfromArrey != null){
+                    System.out.println("Os dados encontrados foram:" + getfromArrey.getName());
+                    System.out.println("Os dados encontrados foram:" + getfromArrey.getLastName());
+                    System.out.println("Os dados encontrados foram:" + getfromArrey.getAge());
+                    System.out.println("Os dados encontrados foram:" + getfromArrey.getAddress());
+                    System.out.println("Os dados encontrados foram:" + getfromArrey.getEmail());
+                    System.out.println("Os dados encontrados foram:" + getfromArrey.getCPF());
+                }else {
+
+                    System.out.println("Usuário não encontrado");
+
+                }
+
+
+
+
+
+                if ("GET".equals(exchange.getRequestMethod())){
+
+                    List<Users> getAllFromArrey = Users.getAllUsers(usersList);
+
+                    if (!getAllFromArrey.isEmpty()){
+                        for (Users user : getAllFromArrey){
+
+                        System.out.println("Os dados encontrados foram:" + user.getName());
+                        System.out.println("Os dados encontrados foram:" + user.getLastName());
+                        System.out.println("Os dados encontrados foram:" + user.getAge());
+                        System.out.println("Os dados encontrados foram:" + user.getAddress());
+                        System.out.println("Os dados encontrados foram:" + user.getEmail());
+                        System.out.println("Os dados encontrados foram:" + user.getCPF());
+                            System.out.println();
+                            System.out.println("------------------------------------------" );
+                            System.out.println();
+
+                        }
+
+                    }else {
+                        System.out.println("Nenhum usuário foi encontrado");
+                    }
+
+                }
+
+
+
+
+//
+//                    if(getfromArrey != null){
+//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getName());
+//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getLastName());
+//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getAge());
+//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getAddress());
+//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getEmail());
+//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getCPF());
+//                    }else {
+//
+//                        System.out.println("Usuário não encontrado");
+
+//                    }
+
+
+
+
+
+
+
+
                 response = "Essa e a rota de Usuario - GET";
                 res.enviarResponse(exchange,response, 200);
             } else if ("POST".equals(exchange.getRequestMethod())){
@@ -47,7 +118,7 @@ public class UserController {
 
 
                     System.out.println("O valor foi" + user.toJson());
-                    res.e
+
 
 
 
@@ -56,7 +127,6 @@ public class UserController {
 
 //                    String resposta = e.toString();
                     String resposta = e.toString();
-
 
                     res.enviarResponse(exchange,resposta, 405);
                     res.enviarResponse(exchange,response, 405);

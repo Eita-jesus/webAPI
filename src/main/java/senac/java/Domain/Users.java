@@ -2,6 +2,9 @@ package senac.java.Domain;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Users {
 
         public static int id = 0;
@@ -82,5 +85,25 @@ public class Users {
 
         }
 
+        public static Users getusets (int index, List<Users>usersList){
+
+//                List<Users> users = new ArrayList<>();
+//                 users = usersList;
+
+                if (index >= 0 && index < usersList.size()){
+                        return usersList.get(index);
+
+                }else {
+                        return null;
+                }
+        }
+
+
+        //esse metodo vai ser exclusivamente para passagem de dados
+        public static List<Users> getAllUsers(List<Users>usersList){
+
+
+             return usersList;
+        }
 
 }
