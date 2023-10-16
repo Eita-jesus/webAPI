@@ -7,14 +7,14 @@ import java.util.List;
 
 public class Users {
 
-        public static int id = 0;
-        public static String name = "";
-        public static String lastName = "";
-        public static int age = 0;
-        public static String address = "";
-        public static String email = "";
-        public static String password = "";
-        public static String cpf = "";
+        public  int id = 0;
+        public  String name = "";
+        public  String lastName = "";
+        public  int age = 0;
+        public  String address = "";
+        public  String email = "";
+        public  String password = "";
+        public  String cpf = "";
 
         //Vamos precisar criar um construtor, contudo dentro da model
         public Users(){
@@ -51,9 +51,7 @@ public class Users {
         public void setAddress(String address){
                 this.address = address;
         }
-        public String getEmail(){
-                return email;
-        }
+        public String getEmail(){return email;}
         public void setEmail(){
                 this.email = email;
         }

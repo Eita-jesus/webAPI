@@ -24,9 +24,6 @@ public class UserController {
             if ("GET".equals(exchange.getRequestMethod())){
 
                 Users getfromArrey = Users.getusets(0,usersList);
-
-
-
                 if(getfromArrey != null){
                     System.out.println("Os dados encontrados foram:" + getfromArrey.getName());
                     System.out.println("Os dados encontrados foram:" + getfromArrey.getLastName());
@@ -39,9 +36,6 @@ public class UserController {
                     System.out.println("Usuário não encontrado");
 
                 }
-
-
-
 
 
                 if ("GET".equals(exchange.getRequestMethod())){
@@ -100,7 +94,6 @@ public class UserController {
                 //Aqui estamos desserialização o código em JavaScript
 
                 try (InputStream resquestbody = exchange.getRequestBody()){
-
                     JSONObject json = new JSONObject(new String(resquestbody.readAllBytes()));
                     Users user = new Users(
 

@@ -35,20 +35,20 @@ public class ScreenRegister {
 
     }
     public static void inputSalesperson() {
-        System.out.print("id:");
-        Salesperson.id = Integer.parseInt(sc.nextLine());
-        System.out.print("name :");
-        Salesperson.name = sc.nextLine();
-        System.out.print("lastName:");
-        Salesperson.lastName = sc.nextLine();
-        System.out.print("phoneNumber:");
-        Salesperson.phoneNumber = sc.nextLine();
-        System.out.print("CPF :");
-        Salesperson.CPF = sc.nextLine();
-        System.out.print("Email :");
-        Salesperson.Email = sc.nextLine();
-        System.out.print("address:");
-        Salesperson.address = sc.nextLine();
+//        System.out.print("id:");
+//        Salesperson.id = Integer.parseInt(sc.nextLine());
+//        System.out.print("name :");
+//        Salesperson.name = sc.nextLine();
+//        System.out.print("lastName:");
+//        Salesperson.lastName = sc.nextLine();
+//        System.out.print("phoneNumber:");
+//        Salesperson.phoneNumber = sc.nextLine();
+//        System.out.print("CPF :");
+//        Salesperson.CPF = sc.nextLine();
+//        System.out.print("Email :");
+//        Salesperson.Email = sc.nextLine();
+//        System.out.print("address:");
+//        Salesperson.address = sc.nextLine();
 
     }
 
@@ -83,20 +83,20 @@ public class ScreenRegister {
     }
 
     public static void inputUser() {
-        System.out.print("id");
-        Users.id = Integer.parseInt(sc.nextLine());
-        System.out.print("Name:");
-        Users.name = sc.nextLine();
-        System.out.print("Last Name:");
-        Users.lastName = sc.nextLine();
-        System.out.print("Adress:");
-        Users.address = sc.nextLine();
-        System.out.print("Email:");
-        Users.email = sc.nextLine();
-        System.out.print("Password: ");
-        Users.password = sc.nextLine();
-        System.out.print("CPF: ");
-        Users.cpf = sc.nextLine();
+//        System.out.print("id");
+//        Users.id = Integer.parseInt(sc.nextLine());
+//        System.out.print("Name:");
+//        Users.name = sc.nextLine();
+//        System.out.print("Last Name:");
+//        Users.lastName = sc.nextLine();
+//        System.out.print("Adress:");
+//        Users.address = sc.nextLine();
+//        System.out.print("Email:");
+//        Users.email = sc.nextLine();
+//        System.out.print("Password: ");
+//        Users.password = sc.nextLine();
+//        System.out.print("CPF: ");
+//        Users.cpf = sc.nextLine();
 
 
 

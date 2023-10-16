@@ -13,31 +13,31 @@ public class ScreenPrint {
 
         if (selectOptioned == 1){
             //vendedor
-            System.out.print(
-                    "---- Descrição do Funcionário cadastrado ---" +
-                            "id:" + Salesperson.id + "\n" +
-                            "Name:" + Salesperson.name + "\n" +
-                            "LastName:" + Salesperson.lastName + "\n" +
-                            "Phone Number:" + Salesperson.phoneNumber + "\n" +
-                            "CPF:" + Salesperson.CPF + "\n" +
-                            "Email:" + Salesperson.Email + "\n" +
-                            "Address:" + Salesperson.address
-            );
+//            System.out.print(
+//                    "---- Descrição do Funcionário cadastrado ---" +
+//                            "id:" + Salesperson.id + "\n" +
+//                            "Name:" + Salesperson.name + "\n" +
+//                            "LastName:" + Salesperson.lastName + "\n" +
+//                            "Phone Number:" + Salesperson.phoneNumber + "\n" +
+//                            "CPF:" + Salesperson.CPF + "\n" +
+//                            "Email:" + Salesperson.Email + "\n" +
+//                            "Address:" + Salesperson.address
+//            );
 
 
         }else if (selectOptioned == 2){
             //cliente
-            System.out.print(
-                    "---- Descrição do usuário cadastrado ---" +
-                            "id:" + Users.id +
-                            "Name:" + Users.name + "\n" +
-                            "Last Name:" + Users.lastName + "\n" +
-                            "Age:" + Users.age + "\n" +
-                            "Adress: " + Users.address + "\n" +
-                            "Email:" + Users.email + "\n" +
-                            "Password:" + Users.password + "\n" +
-                            "CPF: " + Users.cpf
-            );
+//            System.out.print(
+//                    "---- Descrição do usuário cadastrado ---" +
+//                            "id:" + Users.id +
+//                            "Name:" + Users.name + "\n" +
+//                            "Last Name:" + Users.lastName + "\n" +
+//                            "Age:" + Users.age + "\n" +
+//                            "Adress: " + Users.address + "\n" +
+//                            "Email:" + Users.email + "\n" +
+//                            "Password:" + Users.password + "\n" +
+//                            "CPF: " + Users.cpf
+//            );
 
         }else{
             //produto
