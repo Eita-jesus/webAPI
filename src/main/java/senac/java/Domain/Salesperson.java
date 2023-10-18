@@ -24,8 +24,6 @@ public class Salesperson {
         this.CPF = CPF;
         this.Email= Email;
         this.address = address;
-
-
     }
 
     public String getName() {
@@ -64,9 +62,7 @@ public class Salesperson {
         return Email;
     }
 
-    public  void setEmail(String email) {
-        Email = email;
-    }
+    public  void setEmail(String email) {Email = email;}
 
     public  String getAddress() {
         return address;
@@ -78,6 +74,7 @@ public class Salesperson {
 
 
     public JSONObject toJson(){
+
         JSONObject json = new JSONObject();
         json.put("name", name);
         json.put("lastName",lastName);
@@ -99,8 +96,6 @@ public class Salesperson {
             }else {
                 return null;
             }
-
-
     }
 
     public static List<Salesperson>  getAllSalesPerson(List<Salesperson>salespersonList){

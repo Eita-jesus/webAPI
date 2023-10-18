@@ -16,45 +16,22 @@ public class SalesPersonController {
     static ResponseEndPoints res = new ResponseEndPoints();
      public JSONObject ob = new JSONObject();
 
-
-    public String creatingJsonString() {
-        JSONObject pets = new JSONObject();
-        pets.put(String.valueOf(1),"dog");
-        pets.put(String.valueOf(2), "gato");
-
-        return pets.toString(1);
-
-//        JSONObject person = new JSONObject();
-//        person.put("name", "John Brown");
-//        person.put("age", 35);
-//        person.put("pets", pets);
-//        return person.toString(2);
-    }
-
-
 public static List<Salesperson> salespersonList = new ArrayList<>();
     public static class SalesPensonHandler implements HttpHandler {
         @Override
         public  void handle(HttpExchange exchange)throws IOException {
 
-            JSONObject pets = new JSONObject();
-            pets.put(String.valueOf(1),"dog");
-            pets.put(String.valueOf(2), "gato");
-//            pets.put()
-
-
             String response = "";
-            String teste1 = "";
+
 
             if ("GET".equals(exchange.getRequestMethod())){
-
                 List<Salesperson> getAllFromArray = Salesperson.getAllSalesPerson(salespersonList);
-
                 if (!getAllFromArray.isEmpty()){
+
                     for(Salesperson salesperson: getAllFromArray){
                         System.out.println("Os dados encontrados foram:" + salesperson.getName());
                         System.out.println("Os dados encontrados foram:" + salesperson.getLastName());
-//                        System.out.println("Os dados encontrados foram:" + salesperson.getAge());
+                        System.out.println("Os dados encontrados foram:" + salesperson.getPhoneNumber());
                         System.out.println("Os dados encontrados foram:" + salesperson.getAddress());
                         System.out.println("Os dados encontrados foram:" + salesperson.getEmail());
                         System.out.println("Os dados encontrados foram:" + salesperson.getCPF());
@@ -65,17 +42,16 @@ public static List<Salesperson> salespersonList = new ArrayList<>();
                     res.enviarResponse(exchange, response, 200);
 
                 }else {
-                    response = "Dados não encontrados";
+                    response = "Dados não encontrados 123";
                     res.enviarResponse(exchange, response, 400);
 
                 }
 
-//                teste1 = pets.toString(1);
-//                response = "Essa e a rota de Vendedor - GET" + teste1;
-                res.enviarResponse(exchange,response, 200);
-            } else if ("POST".equals(exchange.getRequestMethod())){
-                try(InputStream requestBody = exchange.getRequestBody()){
+            } else if ("POST".equals(exchange.getRequestMethod())) {
+                try (InputStream requestBody = exchange.getRequestBody()) {
                     JSONObject json = new JSONObject(new String(requestBody.readAllBytes()));
+
+                    System.out.println("Cheguei no try - POST");
 
                     Salesperson salesperson = new Salesperson(
                             json.getString("name"),
@@ -87,16 +63,30 @@ public static List<Salesperson> salespersonList = new ArrayList<>();
 
                     );
 
+                    System.out.println(salesperson);
+
                     salespersonList.add(salesperson);
-                    res.enviarResponse(exchange,salespersonList.toString(), 200);
 
 
-                }catch (Exception e){
+                    response = "Dados cadastrados com Sucesso";
+                    res.enviarResponse(exchange, response, 200);
+                    System.out.println(salesperson.toJson());
 
+
+                    }
+
+
+                catch (Exception e){
+
+                        System.out.println("Cheguei no catch");
+                        response = "Estou caindo no catch";
+                        res.enviarResponse(exchange,response, 200);
                 }
 
-                response = "Essa e a rota de Vendedor - POST";
-                res.enviarResponse(exchange,response, 200);
+
+
+
+
             }else if ("PUT".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Vendedor - PUT";
                 res.enviarResponse(exchange,response, 200);
