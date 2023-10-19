@@ -22,18 +22,17 @@ public class ResponseEndPoints {
 
     }
 
-    public static void enviarResponse(HttpExchange exchange, JSONObject response) throws IOException{
+    public static void enviarResponseJson(HttpExchange exchange, JSONObject response, Integer statusCode) throws IOException{
 
         exchange.getResponseHeaders().set("Content-Type", "application/json");
 
         byte[] responseByte = response.toString().getBytes("UTF-8");
 
-        //exchange.sendResponseHeaders(200, response.getJSONObject().length);
-        exchange.sendResponseHeaders(200, responseByte.length);
+        exchange.sendResponseHeaders(statusCode, responseByte.length);
 
 
         OutputStream os = exchange.getResponseBody();
-        os.write(responseByte.length);
+        os.write(responseByte);
         os.close();
 
 

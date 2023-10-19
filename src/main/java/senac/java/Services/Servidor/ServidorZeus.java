@@ -56,8 +56,8 @@ public class ServidorZeus {
     private void ConfigureCorsheaders(HttpExchange exchange){
 
         Headers headers = exchange.getResponseHeaders();
-        headers.set("Acess-control-Allow Origin","*");
-        headers.set("Access-Control-Allow-Methods", "GET,POST,OPTIONS,PUT DELETE");
+        headers.set("Access-Control-Allow-Origin","*");
+        headers.set("Access-Control-Allow-Methods","GET,POST,OPTIONS,PUT,DELETE");
 
     }
 

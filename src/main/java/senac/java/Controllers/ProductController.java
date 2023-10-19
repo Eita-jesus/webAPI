@@ -13,6 +13,7 @@ public class ProductController {
 
             String response = "";
 
+
             if ("GET".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Produtos - GET";
                 res.enviarResponse(exchange,response, 200);
