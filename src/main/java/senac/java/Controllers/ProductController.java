@@ -25,11 +25,11 @@ public class ProductController {
                 res.enviarResponse(exchange,response,200);
             }else if("DELETE".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Produtos - DELETE";
-                res.enviarResponse(exchange,response,405);
+                res.enviarResponse(exchange,response,200);
             }else {
                 response = "ERROOOOOOO \n " +
                     "O método imprementado é: " + exchange.getRequestMethod();
-                res.enviarResponse(exchange,response, 405);
+                res.enviarResponse(exchange,response, 200);
             }
 
 

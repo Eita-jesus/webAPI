@@ -82,8 +82,13 @@ public class SalesPersonController {
                         System.out.println(salesperson.toJson());
                     }
                     catch (Exception e){
+
+                        String response1 = e.toString();
+                        System.out.println(response1);
+
+
                         System.out.println("Cheguei no catch");
-                        response = "Estou caindo no catch";
+                        response = "Estou caindo no catch do POST Sales Personcontroler" ;
                         res.enviarResponse(exchange,response, 200);
                     }
                 }else if ("PUT".equals(exchange.getRequestMethod())){
@@ -95,7 +100,7 @@ public class SalesPersonController {
                 }else {
                     response = "ERROOOOOOO \n " +
                             "O método imprementado é: " + exchange.getRequestMethod();
-                    res.enviarResponse(exchange,response, 405);
+                    res.enviarResponse(exchange,response, 200);
                 }
 
 
