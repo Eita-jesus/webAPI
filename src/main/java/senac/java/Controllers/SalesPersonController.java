@@ -13,11 +13,11 @@ import java.util.List;
 
 
 public class SalesPersonController {
-        static ResponseEndPoints res = new ResponseEndPoints();
-        public JSONObject ob = new JSONObject();
-
-
+    static ResponseEndPoints res = new ResponseEndPoints();
+    public JSONObject ob = new JSONObject();
     public static List<Salesperson> salespersonList = new ArrayList<>();
+
+
         public static class SalesPensonHandler implements HttpHandler {
             @Override
             public  void handle(HttpExchange exchange)throws IOException {
@@ -97,12 +97,10 @@ public class SalesPersonController {
                 }else if("DELETE".equals(exchange.getRequestMethod())){
                     response = "Essa e a rota de Vendedor - DELETE";
                     res.enviarResponse(exchange,response, 200);
-                }else {
-                    response = "ERROOOOOOO \n " +
-                            "O método imprementado é: " + exchange.getRequestMethod();
-                    res.enviarResponse(exchange,response, 200);
+                }else if("OPTION".equals(exchange.getRequestMethod())){
+                    exchange.sendResponseHeaders(204,-1);
+                    exchange.close();
                 }
-
 
             }
 
