@@ -62,7 +62,7 @@ public class ScreenRegister {
         System.out.print("State");
         Stores.state = sc.nextLine();
         System.out.print("CNPJ");
-        Stores.CNPJ = sc.nextLine();
+        Stores.cnpj = sc.nextLine();
         System.out.print("Phone Number");
         Stores.phoneNumber = sc.nextLine();
         System.out.print("Email");

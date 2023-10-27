@@ -13,7 +13,6 @@ import java.util.List;
 
 public class UserController {
      static ResponseEndPoints res = new ResponseEndPoints();
-
      private static List<Users> usersList = new ArrayList<>();
 
     public static class UserHandler implements HttpHandler {
@@ -63,30 +62,6 @@ public class UserController {
 
                 }
 
-
-
-
-//
-//                    if(getfromArrey != null){
-//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getName());
-//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getLastName());
-//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getAge());
-//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getAddress());
-//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getEmail());
-//                        System.out.println("Os dados encontrados foram:" + getfromArrey.getCPF());
-//                    }else {
-//
-//                        System.out.println("Usuário não encontrado");
-
-//                    }
-
-
-
-
-
-
-
-
                 response = "Essa e a rota de Usuario - GET";
                 res.enviarResponse(exchange,response, 200);
             } else if ("POST".equals(exchange.getRequestMethod())){
@@ -104,17 +79,11 @@ public class UserController {
                             json.getString("email"),
                             json.getString("password"),
                             json.getString("cpf")
-
                     );
 
                     usersList.add(user);
 
-
                     System.out.println("O valor foi" + user.toJson());
-
-
-
-
 
                 }catch(Exception e ){
 
@@ -123,24 +92,20 @@ public class UserController {
 
                     res.enviarResponse(exchange,resposta, 405);
                     res.enviarResponse(exchange,response, 405);
-
-
                 }
-
-
-                response = "Essa e a rota de Usuario - POST";
+                response = "Essa e a rota de Usuario - POST api/usuario";
                 res.enviarResponse(exchange,response,200);
-
-
             }else if ("PUT".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Usuario - PUT";
                 res.enviarResponse(exchange,response,200);
             }else if("DELETE".equals(exchange.getRequestMethod())){
                 response = "Essa e a rota de Usuario - DELETE";
                 res.enviarResponse(exchange,response,200);
-            }else {
-                response = "ERROOOOOOO \n " +
-                        "O método imprementado é: " + exchange.getRequestMethod();
+            }else if ("OPTION".equals(exchange.getRequestMethod())){
+                res.enviarResponse(exchange,response,200);
+            }else{
+                response = "ERROOOOOOO \n " + "O método imprementado é: "
+                        + exchange.getRequestMethod();
                 res.enviarResponse(exchange,response,200);
             }
 

@@ -4,18 +4,20 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.json.JSONObject;
 import senac.java.Services.ResponseEndPoints;
+import senac.java.Domain.ProductsCards;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsCardsControler {
-    static ResponseEndPoints res = new ResponseEndPoints();
+    public class ProductsCardsControler {
+     static ResponseEndPoints res = new ResponseEndPoints();
     public JSONObject ob = new JSONObject();
     public static List<ProductsCardsControler> productsCardsControlerList = new ArrayList<>();
 
-        public static class ProductsCards implements HttpHandler{
+        public static class ProductsCardsHandler implements HttpHandler{
+
 
             public void handle(HttpExchange exchange)throws IOException{
                 String response = "";
@@ -23,18 +25,19 @@ public class ProductsCardsControler {
                 if ("GET".equals(exchange.getRequestMethod())){
                     response = "Estamos no GET da rota de Products Cards";
                     res.enviarResponse(exchange,response,200);
+
+
                 }else if("POST".equals(exchange.getRequestMethod())){
                     response = "Estamos no POST da rota de Products Cards";
                     try(InputStream requestBody = exchange.getRequestBody()){
                         JSONObject json = new JSONObject(new String(requestBody.readAllBytes()));
 
-                        ProductsCards productsCards = new ProductsCards(
-                            json.getString("name"),
-                            json.getString("Price")
-
+                        ProductsCards ProductsCards = new ProductsCards(
+                                json.getString("pName"),
+                                json.getString("pPrice"),
+                                json.getString("imagemcelular")
                         );
 
-                        productsCardsControlerList.add(productsCards);
 
 
                     }catch (Exception e){
@@ -54,9 +57,8 @@ public class ProductsCardsControler {
                 }else if("OPTIONS".equals(exchange.getRequestMethod())){
                     response = "Estamos no OPTIONS da rota de Products Cards";
                     res.enviarResponse(exchange,response,200);
-
                 }else{
-                    response = "ERROR abc123";
+                    response = "ERROR no Cards Controler";
                     res.enviarResponse(exchange,response,401);
 
 

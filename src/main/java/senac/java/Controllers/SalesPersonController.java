@@ -16,8 +16,6 @@ public class SalesPersonController {
     static ResponseEndPoints res = new ResponseEndPoints();
     public JSONObject ob = new JSONObject();
     public static List<Salesperson> salespersonList = new ArrayList<>();
-
-
         public static class SalesPensonHandler implements HttpHandler {
             @Override
             public  void handle(HttpExchange exchange)throws IOException {
@@ -28,11 +26,11 @@ public class SalesPersonController {
 
                 if ("GET".equals(exchange.getRequestMethod())){
 
-                    List<Salesperson> getAllFromArray = Salesperson.getAllSalesPerson(salespersonList);
-                    Salesperson salespersonJson = new Salesperson();
+                List<Salesperson> getAllFromArray = Salesperson.getAllSalesPerson(salespersonList);
+                Salesperson salespersonJson = new Salesperson();
 
-                    if (!getAllFromArray.isEmpty()){
-                        for(Salesperson salesperson: getAllFromArray){
+                if (!getAllFromArray.isEmpty()){
+                    for(Salesperson salesperson: getAllFromArray){
 
                             System.out.println("Nome:" + salesperson.getName());
                             System.out.println("Sobrenome:" + salesperson.getLastName());
@@ -43,29 +41,17 @@ public class SalesPersonController {
                             System.out.println();
                             System.out.println("-----------------------------------------------------");
                             System.out.println();
-
                         }
-
                         response = "Dados encontrados com Sucesso - Estou no GET validation";
-
-                    //    res.enviarResponse(exchange, response, 200);
-
                         res.enviarResponseJson(exchange,salespersonJson.arrayToJson(getAllFromArray),200);
-
-
-
                     }else {
                         response = "Dados não encontrado Estou no GET ELSE";
                         res.enviarResponse(exchange, response, 200);
-
                     }
-
                 } else if ("POST".equals(exchange.getRequestMethod())){
                     try (InputStream requestBody = exchange.getRequestBody()) {
                         JSONObject json = new JSONObject(new String(requestBody.readAllBytes()));
-
                         System.out.println("CHEGUEI NO POST - TRY");
-
                         Salesperson salesperson = new Salesperson(
                                     json.getString("name"),
                                     json.getString("lastName"),
@@ -82,11 +68,8 @@ public class SalesPersonController {
                         System.out.println(salesperson.toJson());
                     }
                     catch (Exception e){
-
                         String response1 = e.toString();
                         System.out.println(response1);
-
-
                         System.out.println("Cheguei no catch");
                         response = "Estou caindo no catch do POST Sales Personcontroler" ;
                         res.enviarResponse(exchange,response, 200);

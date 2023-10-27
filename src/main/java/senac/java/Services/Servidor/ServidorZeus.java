@@ -5,7 +5,7 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import senac.java.Controllers.ProductController;
-import senac.java.Controllers.ProductsCardsControler;
+//import senac.java.Controllers.ProductsCardsControler;
 import senac.java.Controllers.SalesPersonController;
 import senac.java.Controllers.UserController;
 import com.sun.net.httpserver.HttpServer; //Cria um servidor
@@ -31,7 +31,7 @@ public class ServidorZeus {
         HttpHandler userHandler = new UserController.UserHandler();
         HttpHandler SalesPersonHandler = new SalesPersonController.SalesPensonHandler();
         HttpHandler productHandler = new ProductController.Produts();
-        HttpHandler productCardsHandler = new ProductsCardsControler.ProductsCards();
+//        HttpHandler productCardsHandler = new ProductsCardsControler.ProductsCards();
 
 
 
