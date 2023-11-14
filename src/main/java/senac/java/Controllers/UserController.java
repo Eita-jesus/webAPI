@@ -3,8 +3,10 @@ package senac.java.Controllers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.json.JSONObject;
+import senac.java.DAL.UserDal;
 import senac.java.Domain.Users;
 import senac.java.Services.ResponseEndPoints;
+import senac.java.Services.Servidor.Conexao;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +26,7 @@ public class UserController {
 
                 Users getfromArrey = Users.getusets(0,usersList);
                 if(getfromArrey != null){
-                    System.out.println("Os dados encontrados foram:" + getfromArrey.getName());
+                    System.out.println("Os dados encontrados foram:" + getfromArrey.getUname());
                     System.out.println("Os dados encontrados foram:" + getfromArrey.getLastName());
                     System.out.println("Os dados encontrados foram:" + getfromArrey.getAge());
                     System.out.println("Os dados encontrados foram:" + getfromArrey.getAddress());
@@ -44,7 +46,7 @@ public class UserController {
                     if (!getAllFromArrey.isEmpty()){
                         for (Users user : getAllFromArrey){
 
-                        System.out.println("Os dados encontrados foram:" + user.getName());
+                        System.out.println("Os dados encontrados foram:" + user.getUname());
                         System.out.println("Os dados encontrados foram:" + user.getLastName());
                         System.out.println("Os dados encontrados foram:" + user.getAge());
                         System.out.println("Os dados encontrados foram:" + user.getAddress());
@@ -65,13 +67,14 @@ public class UserController {
                 response = "Essa e a rota de Usuario - GET";
                 res.enviarResponse(exchange,response, 200);
             } else if ("POST".equals(exchange.getRequestMethod())){
+                UserDal userDal = new UserDal();
 
                 //Aqui estamos desserialização o código em JavaScript
 
                 try (InputStream resquestbody = exchange.getRequestBody()){
                     JSONObject json = new JSONObject(new String(resquestbody.readAllBytes()));
-                    Users user = new Users(
 
+                    Users user = new Users(
                             json.getString("name"),
                             json.getString("last_name"),
                             json.getInt("age"),
@@ -82,6 +85,8 @@ public class UserController {
                     );
 
                     usersList.add(user);
+
+                   userDal.inserUsuario(user.uname, user.age);
 
                     System.out.println("O valor foi" + user.toJson());
 

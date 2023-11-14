@@ -2,13 +2,12 @@ package senac.java.Domain;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Users {
 
         public  int id = 0;
-        public  String name = "";
+        public  String uname = "";
         public  String lastName = "";
         public  int age = 0;
         public  String address = "";
@@ -21,7 +20,7 @@ public class Users {
 
         }
         public Users(String name, String lastName, int age, String address, String email, String password, String cpf){
-                this.name = name;
+                this.uname = name;
                 this.lastName = lastName;
                 this.age = age;
                 this.address = address;
@@ -31,10 +30,10 @@ public class Users {
 
         }
 
-        public String getName(){
-            return name;
+        public String getUname(){
+            return uname;
         }
-        public void setName(String name){this.name = name;}
+        public void setUname(String uname){this.uname = uname;}
         public String getLastName(){
                 return lastName;
         }
@@ -71,7 +70,7 @@ public class Users {
 
         public JSONObject toJson(){
                 JSONObject json = new JSONObject();
-                json.put("name",name);
+                json.put("name", uname);
                 json.put("last_name", lastName);
                 json.put("age",age);
                 json.put("address",address);

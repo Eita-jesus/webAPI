@@ -4,6 +4,8 @@ import com.sun.net.httpserver.HttpServer; //Cria um servidor
 import com.sun.net.httpserver.HttpHandler; //
 import com.sun.net.httpserver.HttpExchange; //
 import java.io.IOException; //
+
+import senac.java.Services.Servidor.Conexao;
 import senac.java.Services.Servidor.ServidorZeus;
 import senac.java.Views.Presentation;
 
@@ -15,10 +17,14 @@ public static ServidorZeus TesteServerZeus = new ServidorZeus();
 
     public static void main(String[] args) throws IOException{
 
-//        ServidorZeus.servidorZeus();
-        TesteServerZeus.servidorZeus();
+////        ServidorZeus.servidorZeus();
+//        TesteServerZeus.servidorZeus();
+//
+//        Presentation.showOptions();
 
-        Presentation.showOptions();
+        Conexao conexao = new Conexao();
+        conexao.conectar();
+
 
    }
 }
