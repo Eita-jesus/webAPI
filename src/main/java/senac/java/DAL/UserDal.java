@@ -8,13 +8,46 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 public class UserDal {
 
-    public void inserUsuario(String unome,int age, String address,String email,String password, String cpf ) throws SQLException{
+    //Essa classe vai fazer a conexão com o banco de dados
+    public Connection conectar(){
+        Connection conexao = null;
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-        String sql = "INSERT INTO dbo.Users (unome, age, address, email, password, cpf)VALUEs(?,?,?,?,?,?)" ;
+            String connectionUrl = "jdbc:sqlserver://116DE150263/SQLEXPRESS:1433;database=pi;";
+            String usuario = "SENACRJEDU/116128412023.1";
+            String senha = "Senac@12841";
 
-        Conexao conexao = new Conexao();
+            conexao = DriverManager.getConnection(connectionUrl,usuario,senha);
 
-        try(PreparedStatement statement = conexao.conectar().prepareStatement(sql)){
+            if (conexao != null){
+//                System.out.println("Conexão realizada com sucesso");
+                return conexao;
+            }
+
+        }catch (ClassNotFoundException | SQLException e){
+            System.out.println("O erro foi " + e );
+
+        }finally {
+            try {
+                if (conexao != null && !conexao.isClosed()){
+                    conexao.close();
+                }
+            }catch (SQLException e){
+                System.out.println("O erro do SQL foi" + e);
+            }
+        }
+        return conexao;
+    }
+
+// abaixo temos o CRUD
+    public int inserUsuario(String unome,int age, String address,String email,String password, String cpf ) throws SQLException{
+
+        String sql = "INSERT INTO dbo.Users (unome, age, address, email, password, cpf)VALUEs(?,?,?,?,?,?)" ;// Essa colunas devem seguir a mesma ordem da tabela isso para organizar mas esse order deve ser a mesma do try
+        int linhasAfetadas = 0;
+        Connection conexao = conectar();
+
+        try(PreparedStatement statement = conexao.prepareStatement(sql)){
             statement.setString(1,unome);
             statement.setInt(1,age);
             statement.setString(1,address);
@@ -22,13 +55,19 @@ public class UserDal {
             statement.setString(1,password);
             statement.setString(1,cpf);
 
-            int linhasAfetadas = statement.executeUpdate();
+            linhasAfetadas = statement.executeUpdate();
 
             System.out.println("Foram modificadas" + linhasAfetadas + "no banco de dados");
 
+            conexao.close();
+            return linhasAfetadas;
+
         }catch (SQLException e){
             System.out.println("O erro na inserçãoi de dados foi" + e);
+            conexao.close();
         }
+        conexao.close();
+        return linhasAfetadas;
     }
     public void listarusuario(Connection conexao)throws SQLException{
 
